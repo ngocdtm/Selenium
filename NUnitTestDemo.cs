@@ -1,13 +1,5 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using Selenium_Learn.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Selenium_Learn
+﻿using Selenium_Learn.Pages;
+namespace Selenium_Learn.Tests.tests
 {
    [TestFixture("admin", "password")]
    public class NUnitTestDemo

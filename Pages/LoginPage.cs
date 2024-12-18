@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using Selenium_Learn.Extentions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace Selenium_Learn.Pages
 {
-    public class LoginPage
+    public class LoginPage(IWebDriver driver)
     {
-        private readonly IWebDriver driver;
+        // prior to c#12
+        //private readonly IWebDriver driver;
 
-        public LoginPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        //public LoginPage(IWebDriver driver)
+        //{
+        //    this.driver = driver;
+        //}
 
         IWebElement LoginLink => driver.FindElement(By.Id("loginLink"));
 

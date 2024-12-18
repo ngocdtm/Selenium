@@ -1,8 +1,9 @@
 using OpenQA.Selenium.Chrome;
+using Selenium_Learn.Extentions;
 using Selenium_Learn.Pages;
 namespace Selenium_Learn
 {
-    public class Tests
+    public class UnitTest1
     {
         [SetUp]
         public void Setup()
@@ -67,7 +68,7 @@ namespace Selenium_Learn
         //    SeleniumCustomMethods.MultiSelectElements(driver, By.Id("multiselect"), ["multi1", "multi2"]);
 
         //    var getSelectedOptions = SeleniumCustomMethods.GetAllSelectedList(driver, By.Id("multiselect"));
-        //   getSelectedOptions.ForEach(Console.WriteLine);
+        //    getSelectedOptions.ForEach(Console.WriteLine);
 
         //}
 

@@ -1,12 +1,6 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OpenQA.Selenium.Support.UI;
 
-namespace Selenium_Learn
+namespace Selenium_Learn.Extentions
 {
     public static class SeleniumCustomMethods
     {
@@ -46,7 +40,8 @@ namespace Selenium_Learn
         {
             var multiSelect = new SelectElement(locator);
 
-            foreach (var value in values) {
+            foreach (var value in values)
+            {
                 multiSelect.SelectByValue(value);
             }
         }
