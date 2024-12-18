@@ -1,6 +1,4 @@
-﻿using OpenQA.Selenium.Support.UI;
-
-namespace Selenium_Learn.Extentions
+﻿namespace Selenium_Learn.Extentions
 {
     public static class SeleniumCustomMethods
     {

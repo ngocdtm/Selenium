@@ -1,5 +1,4 @@
-﻿
-namespace Selenium_Learn
+﻿namespace Selenium_Learn.Models
 {
     public class LoginModel
     {

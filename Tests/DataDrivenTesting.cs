@@ -1,6 +1,7 @@
 ﻿using Selenium_Learn.Pages;
 using System.Text.Json;
 using FluentAssertions;
+using Selenium_Learn.Models;
 
 namespace Selenium_Learn.Tests.Tests;
 
@@ -14,12 +15,13 @@ public class DataDrivenTesting
         public void SetUp()
         {
             _driver = new ChromeDriver();
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
             _driver.Navigate().GoToUrl("http://eaapp.somee.com/");
             _driver.Manage().Window.Maximize();
         }
         [Test]
         [Category("ddt")]
-        [TestCaseSource(nameof(LoginJsonDataSource))]
+        [TestCaseSource(nameof(Login))]
         public void TestWithPOM(LoginModel loginModel)
         {
             // pom initialization

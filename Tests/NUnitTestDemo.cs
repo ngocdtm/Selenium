@@ -1,8 +1,8 @@
 ﻿using Selenium_Learn.Pages;
-namespace Selenium_Learn.Tests.tests
+namespace Selenium_Learn.Tests
 {
-   [TestFixture("admin", "password")]
-   public class NUnitTestDemo
+    [TestFixture("admin", "password")]
+    public class NUnitTestDemo
     {
         private IWebDriver _driver;
         private readonly string userName;

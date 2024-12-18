@@ -1,7 +1,5 @@
-using OpenQA.Selenium.Chrome;
-using Selenium_Learn.Extentions;
 using Selenium_Learn.Pages;
-namespace Selenium_Learn
+namespace Selenium_Learn.Tests
 {
     public class UnitTest1
     {
@@ -20,20 +18,41 @@ namespace Selenium_Learn
             IWebElement webElement = webDriver.FindElement(By.Name("q"));
             webElement.SendKeys("Selenium");
             webElement.SendKeys(Keys.Return);
-          
+
         }
-        //[Test]
-        //public void EAWebsiteTest()
-        //{
-        //    IWebDriver driver = new ChromeDriver();
-        //    driver.Navigate().GoToUrl("http://eaapp.somee.com/");
+        [Test]
+        public void EAWebsiteTest()
+        {
+            //1. create a new instance of selenium web driver
+            IWebDriver driver = new ChromeDriver();
+            //2.navigate to the url
+            driver.Navigate().GoToUrl("http://eaapp.somee.com/");
+            //3. find the login link
+            var loginLink = driver.FindElement(By.Id("loginLink"));
+            //4. click the login link
+            loginLink.Click();
 
-        //    driver.FindElement(By.LinkText("Login")).Click();
+            WebDriverWait webDriver = new ChromeDriver();
 
-        //    SeleniumCustomMethods.EnterText(driver, By.Name("USerName"), "admin");
-        //    SeleniumCustomMethods.EnterText(driver, By.Id("Password"), "password");
-        //    driver.FindElement(By.CssSelector(".btn")).Submit();
-        //}
+
+
+            //5. Find the username textbox
+            var txtUserName = driver.FindElement(By.Name("UserName"));
+            //6. Typing on the textUserName
+            txtUserName.SendKeys("admin");
+            //7. Find the Password text box
+            var txtPassword = driver.FindElement(By.Id("Password"));
+            //8. Typing on the txtPassword
+            txtPassword.SendKeys("password");
+
+            //SeleniumCustomMethods.EnterText(driver, By.Name("USerName"), "admin");
+            //SeleniumCustomMethods.EnterText(driver, By.Id("Password"), "password");
+            //driver.FindElement(By.CssSelector(".btn")).Submit();
+            //9. Identify the login button using cssSelector
+            var btnLogin = driver.FindElement(By.CssSelector(".btn"));
+            //10. click login button
+            btnLogin.Click();
+        }
         [Test]
         public void TestWithPOM()
         {
