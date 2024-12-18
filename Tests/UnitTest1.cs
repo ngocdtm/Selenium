@@ -1,4 +1,6 @@
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
 using Selenium_Learn.Pages;
+using System.Diagnostics.Tracing;
 namespace Selenium_Learn.Tests
 {
     public class UnitTest1
@@ -32,12 +34,21 @@ namespace Selenium_Learn.Tests
             //4. click the login link
             loginLink.Click();
 
-            WebDriverWait webDriver = new ChromeDriver();
+            //,Explicit wait
+            WebDriverWait driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(10))
+            {
+                PollingInterval = TimeSpan.FromMilliseconds(10),
+                Message = "Textbox userNsme does not appear during that timeframe"
+            };
 
+            driverWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
 
+            var txtUserName = driverWait.Until(d =>
+            {
+                var element = driver.FindElement(By.Name("UserName"));
+                return (element != null && element.Displayed) ? element : null;
+            });
 
-            //5. Find the username textbox
-            var txtUserName = driver.FindElement(By.Name("UserName"));
             //6. Typing on the textUserName
             txtUserName.SendKeys("admin");
             //7. Find the Password text box
